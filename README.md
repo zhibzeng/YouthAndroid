@@ -10,5 +10,8 @@ YouthAndroid
 <li>4.校园视觉栏目</li>
 <li>5.官方新浪微博整合与互动等</li>
 </ul>
-该APP中采用了数据本地缓存等策略减少了用户流量的浪费，UI及功能实用性方面都比较好
+该APP中采用了数据本地缓存等策略减少了用户流量的浪费，UI及功能实用性方面都比较好,项目截图见<a href="https://github.com/zhibzeng/YouthAndroid/blob/master/image/">image</a>文件夹
+<p>
+<img src="https://github.com/zhibzeng/YouthAndroid/blob/master/image/prepic.jpg?raw=true" alt="some pictures"/>
+</p>
 
