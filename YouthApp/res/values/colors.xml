@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="ivory">#fffffff0</color>
+    <color name="lightyellow">#ffffffe0</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="snow">#fffffafa</color>
+    <color name="transparent">#00000000</color>
+    <color name="full_transparent">#00000000</color>
+    <color name="grayslate">#708090</color>
+       <color name="mask">#33FFFFFF</color>
+</resources>

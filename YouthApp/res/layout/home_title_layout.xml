@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="45dip"
+	android:background="@drawable/main_title_bg"
+    android:id="@+id/titile_layout_ry" >
+
+  <ImageView 
+        android:id="@+id/title_logo_img"
+        android:layout_width="90dip"
+        android:layout_height="30dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dip"
+        android:background="@drawable/top_bar_logo"/>
+ 	<ImageButton
+        android:id="@+id/imageButtonRefresh"
+        android:layout_marginTop="2dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/rootblock_icon_refresh" />
+
+    <ImageButton
+        android:id="@+id/imageButtonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="45dip"
+        android:background="@drawable/selector_rootblock_clear_btn" />
+
+
+    <ImageButton
+        android:id="@+id/ImageButtonSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="85dip"
+        android:background="@drawable/selector_rootblock_set_btn" />
+
+
+    <ImageButton
+        android:id="@+id/imageButtonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="125dip"
+        android:background="@drawable/selector_rootblock_add_btn" />
+</RelativeLayout>

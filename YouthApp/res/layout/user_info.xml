@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ivory"
+    android:orientation="vertical" >
+    <FrameLayout 
+	   	android:layout_width="fill_parent"
+	   	android:layout_height="50dip"
+	   	android:layout_alignParentTop="true"
+        android:id="@+id/userInfoHeader"
+        android:background="@drawable/main_title_bg"
+	   	android:paddingLeft="2dip"
+	   	android:paddingRight="2dip"
+	   	android:gravity="center_vertical"
+	   	android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="用户资料"
+            android:textColor="@color/ivory"
+            android:textSize="20dip" />
+	</FrameLayout>
+	
+ 		
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/newsContentScroll"
+	android:layout_below="@id/userInfoHeader"
+	android:layout_above="@id/footbar_layout_ly"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fadingEdge="none"
+    android:background="@color/ivory"
+    android:scrollbars="vertical" >
+    <LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+	android:padding="15.0dip"
+    android:background="@color/ivory"
+    android:orientation="vertical" >
+  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="用户名：" />
+               	<TextView 
+              		android:id="@+id/user_info_name"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="用户名"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="性别：" />
+               	<TextView 
+              		android:id="@+id/user_info_sex"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="性别"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+	        
+  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="地址：" />
+               	<TextView 
+              		android:id="@+id/user_info_address"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="地址"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+	               
+  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="注册时间：" />
+               	<TextView 
+              		android:id="@+id/user_info_registertime"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="注册时间"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+  	        
+  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="婚姻状况：" />
+               	<TextView 
+              		android:id="@+id/user_info_marry"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="婚姻状况"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+  	  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="爱好：" />
+               	<TextView 
+              		android:id="@+id/user_info_hobby"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="爱好"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	        
+  	  	 <LinearLayout 
+            	android:layout_width="fill_parent" 
+	            android:layout_height="wrap_content" 
+	            android:gravity="center_vertical"
+	            android:focusable="true" 
+	            android:clickable="true"
+	            android:background="@drawable/table_below_bg">
+	            <TextView 
+	                android:layout_width="wrap_content" 
+	                android:layout_height="wrap_content" 
+	                android:layout_marginLeft="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="15.0dip" 
+	                android:textStyle="bold" 
+	                android:textColor="@color/grayslate" 
+	                android:text="Email：" />
+               	<TextView 
+              		android:id="@+id/user_info_email"   
+	                android:layout_width="fill_parent" 
+	                android:layout_height="wrap_content" 
+	                android:layout_weight="1"
+	                android:layout_marginRight="10.0dip" 
+	                android:duplicateParentState="true"
+	                android:textSize="14.0dip" 
+	                android:text="email"
+	                android:textColor="#ff000000"/>
+	        </LinearLayout>
+	   <Button 
+	   	android:id="@+id/Logout"
+	   	android:layout_width="fill_parent"
+	   	android:layout_height="wrap_content"
+	   	android:text="注销登录"         
+	            />
+	   
+ 	</LinearLayout>
+</ScrollView>
+
+<LinearLayout
+        android:id="@+id/footbar_layout_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+        <include layout="@layout/home_footbar_layout" >
+        </include>
+  </LinearLayout>
+
+</RelativeLayout>

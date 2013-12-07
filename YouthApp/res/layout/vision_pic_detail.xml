@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/black"
+	>
+	<com.swjtu.youthapp.widget.VisionDetailGallery
+	    android:background="@color/black"
+		android:id="@+id/gallery"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:spacing="20px">
+	</com.swjtu.youthapp.widget.VisionDetailGallery>
+	<LinearLayout
+	    android:id="@+id/visionMask"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	    android:layout_gravity="bottom"
+	    android:background="@color/mask"
+	    android:visibility="gone"
+	    android:gravity="center"
+	    >
+	    <Button
+	        android:id="@+id/visionDownloadPic"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/cover_down_normal"
+	        >
+	        
+	        </Button>
+	    
+	</LinearLayout>
+</FrameLayout>

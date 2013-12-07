@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/itemImage"
+        android:layout_width="fill_parent"
+        android:layout_height="105dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black" >
+        
+        <ImageButton
+            android:id="@+id/itemCancel"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/grid_cancel_btn"
+            android:visibility="invisible" />
+
+		<ImageView
+		    android:id="@+id/gridImage"
+		    android:layout_width="60dip"
+		    android:layout_height="60dip"
+		   android:layout_centerHorizontal="true"
+		   android:layout_marginTop="10dip"
+		    android:src="@drawable/column_default" />
+
+        <TextView
+            android:id="@+id/itemText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="15dip"
+            android:text="TextView01"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</RelativeLayout> 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newsTitleRelativeLy"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/list_bg"
+   >
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/main_title_bg"
+        android:orientation="horizontal"
+        android:id="@+id/newstitle_layout"
+        android:layout_alignParentTop="true"
+         >
+     <Button 
+         android:id="@+id/newsTitleActivityBtn"
+         android:layout_width="40dip"
+         android:layout_height="40dip"
+         android:layout_marginLeft="5dip"
+         android:layout_gravity="center_vertical"
+         android:background="@drawable/back_btn"
+         />
+        <TextView
+            android:id="@+id/newsCategoryName"
+          	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_vertical"
+        	android:gravity="center"
+        	android:layout_weight="1" 
+            android:text="新闻列表"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <ImageView
+		    android:layout_width="40dip"
+        	android:layout_height="40dip"
+        	android:layout_marginRight="5dip"
+        	android:layout_gravity="center_vertical"
+         	android:minWidth="50dip"
+            />
+        	
+    </LinearLayout>
+    
+<com.swjtu.youthapp.widget.PullDownListView
+      	android:id="@+id/sreach_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_below="@id/newstitle_layout"
+        android:layout_above="@id/footbar_layout_ly"
+       >
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.0"
+            android:divider="@null"
+            android:drawSelectorOnTop="false"
+            android:fadingEdgeLength="0.0sp" />
+</com.swjtu.youthapp.widget.PullDownListView>
+
+<LinearLayout
+        android:id="@+id/footbar_layout_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+        <include layout="@layout/home_footbar_layout" >
+        </include>
+ </LinearLayout>
+</RelativeLayout>

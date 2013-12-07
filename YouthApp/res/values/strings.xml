@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="article_order">订阅</string>
+    <string name="article_network_error">网络异常，请检查网络</string>
+    <string name="article_comment_show">查看评论</string>
+    <string name="article_comment_loading">评论读取中…</string>
+    <string name="article_comment_more">更多</string>
+    <string name="article_comment_noone">暂无评论</string>
+    <string name="article_sub">订阅</string>
+    <string name="cell_selected_alpha_percentage">1</string>
+    <string name="cell_normal_alpha_percentage">0.7</string>
+    <string name="cell_edit_alpha_percentage">0.6</string>
+    <string name="empower_view_title_height">65px</string>
+    <string name="app_name">YouthApp</string>
+    <string name="dialog_yes">确定</string>
+    <string name="dialog_no">取消</string>
+    <string name="dialog_simple_yes">是</string>
+    <string name="dialog_simple_no">否</string>
+    <string name="dialog_simple_title">提示</string>
+  <string name="drop_dowm">下拉刷新</string>
+    <string name="release_update">松开刷新</string>
+    <string name="loading">正在加载...</string>
+    <string name="seen_more">更多</string>
+  
+    
+</resources>

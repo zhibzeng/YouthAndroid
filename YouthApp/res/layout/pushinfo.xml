@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ivory"
+    android:orientation="vertical" >
+
+       <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pushInfoHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/main_title_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="有思提醒您"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/pushInfoTitle"
+        android:layout_below="@id/pushInfoHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pushtitle"
+        android:text="PushInfoTitle"
+        android:textSize="20dip"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        />     
+        
+        
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/pushInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+       	android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"   
+        >
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pushtext"
+        android:textSize="18dip"
+        android:text="哎呀，居然出错了!赶紧通知青年传媒的哥们来救救我!"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/footbar_layout_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+        <include layout="@layout/home_footbar_layout" >
+        </include>
+    </LinearLayout>
+    
+</RelativeLayout>

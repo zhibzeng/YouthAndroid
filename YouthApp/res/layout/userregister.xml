@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+      <!--头部UI-->
+      <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/main_title_bg"
+        android:orientation="horizontal"
+        android:id="@+id/registerHeader"
+        android:layout_alignParentTop="true"
+         >
+     <Button 
+         android:id="@+id/registerBackBtn"
+         android:background="@drawable/back_btn"
+         android:layout_width="40dip"
+         android:layout_height="40dip"
+         android:layout_marginLeft="5dip"
+         android:layout_gravity="center_vertical"
+         />
+        <TextView
+          	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_vertical"
+        	android:gravity="center"
+        	android:layout_weight="1" 
+            android:text="用户注册"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+        <ImageView
+		    android:layout_width="40dip"
+        	android:layout_height="40dip"
+        	android:layout_marginRight="5dip"
+        	android:layout_gravity="center_vertical"
+         	android:minWidth="50dip"
+         	android:scaleType="fitCenter"
+             />
+        	
+    </LinearLayout>
+    
+   <!-- 底部UI -->
+   <LinearLayout
+        android:id="@+id/footbar_layout_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+        <include layout="@layout/home_footbar_layout" >
+        </include>
+    </LinearLayout>
+      
+    <!-- 内容UI -->
+   <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:layout_marginTop="10dip"
+	android:layout_marginBottom="10dip"
+	android:layout_below="@id/registerHeader"
+	android:layout_above="@id/footbar_layout_ly"
+    android:scrollbars="vertical" 
+    
+    >
+        
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  
+    <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    >
+      <TextView
+         android:layout_width="80dip" 
+         android:layout_height="40dip"
+         android:gravity="center" 
+         android:text="用户名"
+         android:textSize="18dip"
+         android:id="@+id/registerName_label"
+       />
+       <EditText 
+       android:layout_width="200dip"
+      android:layout_height="40dip"
+       android:layout_toRightOf="@id/registerName_label"
+       android:id="@+id/registerName"/>
+       </RelativeLayout>
+       
+    <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    >
+       <TextView  
+         android:layout_width="80dip" 
+		 android:layout_height="40dip"
+         android:text="密码"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/password_label"/>
+         <EditText 
+         android:password="true"
+         android:layout_width="200dip" 
+         android:layout_height="40dip" 
+         android:layout_toRightOf="@id/password_label"
+         android:id="@+id/password"/>
+         </RelativeLayout>
+         
+    
+         
+  <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    >
+       <TextView  
+          android:layout_width="80dip" 
+            android:layout_height="40dip"
+         android:text="确认密码"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/passwordConfirm_label"/>
+         <EditText 
+         android:password="true"
+         android:layout_width="200dip" 
+            android:layout_height="40dip"
+         android:layout_toRightOf="@id/passwordConfirm_label"
+         android:layout_alignTop="@id/passwordConfirm_label"
+         android:id="@+id/passwrodConfirm"/>
+         </RelativeLayout>
+         
+  <!-- 
+   <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+       <TextView 
+         android:layout_width="80dip" 
+         android:layout_height="wrap_content" 
+         android:text="年龄"
+         android:id="@+id/age_label"/>
+         <EditText 
+         android:numeric="integer"
+         android:layout_width="200dip" 
+         android:layout_height="wrap_content" 
+         android:layout_toRightOf="@id/age_label"
+         android:layout_alignTop="@id/age_label"
+         android:id="@+id/age"/>
+         </RelativeLayout>     
+       
+        -->    
+  <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    >
+       <TextView  
+         android:layout_width="80dip" 
+            android:layout_height="40dip"
+         android:text="性别"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/sex_label"/>
+         <RadioGroup
+         android:layout_width="200dip" 
+            android:layout_height="40dip"
+         android:layout_toRightOf="@id/sex_label"
+         android:checkedButton="@+id/radioMan"
+         android:orientation="horizontal"
+         android:id="@+id/sexMenu">
+         <RadioButton android:text="男" android:id="@id/radioMan"/>
+         <RadioButton android:text="女"
+         android:id="@+id/radioWoman"/>
+         </RadioGroup>
+         </RelativeLayout>
+         
+         <!-- 
+         <RelativeLayout 
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
+         <TextView
+         android:layout_width="80dip"
+         android:layout_height="wrap_content"
+         android:text="爱好"
+         android:id="@+id/hobby_label"/>
+         <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/hobby_label"
+         android:text="Coding"
+         android:id="@+id/hobbyCoding"/>
+         <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/hobbyCoding"
+         android:text="运动"
+         android:id="@+id/hobbySport"/>
+       
+         <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/hobby_label"
+         android:layout_below="@id/hobbyCoding"
+         android:text="Dota    "
+         android:id="@+id/hobbyDota"/>
+       
+          <CheckBox
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/hobbyDota"
+         android:layout_below="@id/hobbySport"
+         android:text="当学霸"
+         android:id="@+id/hobbyStudy"/>
+       
+         </RelativeLayout>
+          -->
+          
+         <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         >
+         <TextView
+         android:layout_width="80dip"
+           android:layout_height="40dip"
+         android:text="住址"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/address_label"/>
+         <Spinner
+         android:layout_width="200dip"
+           android:layout_height="40dip"
+         android:layout_toRightOf="@id/address_label"
+         android:id="@+id/address">
+         </Spinner>
+         </RelativeLayout>
+         
+         <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         >
+         <TextView
+         android:layout_width="80dip"
+            android:layout_height="40dip"
+         android:text="密保问题"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/question_label"/>
+         <Spinner
+         android:layout_width="200dip"
+          android:layout_height="40dip"
+         android:layout_toRightOf="@id/question_label"
+         android:id="@+id/question">
+         </Spinner>
+         </RelativeLayout>
+         
+         <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         >
+         <TextView
+         android:layout_width="80dip"
+            android:layout_height="40dip"
+         android:text="密保答案"
+         android:gravity="center" 
+          android:textSize="18dip"
+         android:id="@+id/answer_label"/>
+        <EditText 
+     	  android:layout_width="200dip"
+    	     android:layout_height="40dip"
+     	  android:layout_toRightOf="@id/answer_label"
+ 	      android:id="@+id/answer"/>
+         </RelativeLayout>
+         
+         
+         <LinearLayout 
+             android:layout_width="wrap_content"
+          	 android:layout_height="wrap_content"
+          	 android:layout_marginTop="20dip"
+          	 android:layout_gravity="center_horizontal"
+          	 android:gravity="center_horizontal"
+          	 android:orientation="horizontal"
+          	  >
+         <Button
+         android:layout_width="80dip"
+         android:layout_height="wrap_content"
+         android:text="重置"
+          android:textSize="18dip"
+         android:layout_marginLeft="35dip"
+         android:id="@+id/registerResetBtn"/>
+         <Button
+         android:layout_width="80dip"
+         android:layout_height="wrap_content"
+         android:text="提交"
+          android:textSize="18dip"
+		 android:layout_marginLeft="35dip"
+         android:id="@+id/registerSubmitBtn"/>
+         </LinearLayout>
+  </LinearLayout>
+  </ScrollView>
+  
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ivory"
+    android:orientation="vertical" >
+ <!-- 头部UI -->
+  <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:id="@+id/loginHeader_layout"
+        android:layout_alignParentTop="true"
+         >
+        <TextView
+          	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center_vertical"
+        	android:gravity="center"
+            android:text="	用户登录"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+    
+  
+<!-- 底部UI -->
+<LinearLayout
+        android:id="@+id/footbar_layout_ly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" 
+        >
+        <include layout="@layout/home_footbar_layout" >
+        </include>
+  </LinearLayout>
+  
+  
+<!-- 内容UI -->
+<LinearLayout
+  android:id="@+id/loginContent_layout"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:layout_below="@id/loginHeader_layout"
+  android:layout_above="@id/footbar_layout_ly"
+  android:gravity="center_vertical"
+  >
+    
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="用户名:"></TextView>
+  <EditText
+      android:id="@+id/loginUserNameEdit"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:singleLine="true"
+      android:text="" >
+
+</EditText>
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="密码:"></TextView>
+  <EditText
+    android:id="@+id/loginPasswordEdit"
+    android:password="true"
+    android:nextFocusDown="@+id/loginSubmit"
+    android:nextFocusRight="@+id/loginSubmit"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"></EditText>
+  <CheckBox
+    android:text="记住密码"
+    android:id="@+id/loginRememberMeCheckBox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dip">
+  </CheckBox>
+  <Button
+    android:text="登录"
+    android:id="@+id/loginSubmit"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+  </Button>
+  <Button
+    android:text="注册"
+    android:id="@+id/loginRegister"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"></Button>
+</LinearLayout>
+
+</RelativeLayout>
