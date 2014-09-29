@@ -1,0 +1,95 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * $Id: om-buttonbar.js,v 1.2 2012/06/12 02:22:26 luoyegang Exp $
+<span class='line'>  3</span>  * operamasks-ui omButtonbar @VERSION
+<span class='line'>  4</span>  *
+<span class='line'>  5</span>  * Copyright 2011, AUTHORS.txt (http://ui.operamasks.org/about)
+<span class='line'>  6</span>  * Dual licensed under the MIT or LGPL Version 2 licenses.
+<span class='line'>  7</span>  * http://ui.operamasks.org/license
+<span class='line'>  8</span>  *
+<span class='line'>  9</span>  * http://ui.operamasks.org/docs/
+<span class='line'> 10</span>  *
+<span class='line'> 11</span>  * Depends:
+<span class='line'> 12</span>  *  om-core.js
+<span class='line'> 13</span>  */</span><span class="WHIT">
+<span class='line'> 14</span> </span><span class="PUNC">;</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">$</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'> 16</span>      * @name omButtonbar
+<span class='line'> 17</span>      * @class 按钮工具条组件，将多个按钮放置到工具条上面，属性、事件和omButton一样，通过配置每个按钮的id属性，可以操作单个button，&lt;br/>
+<span class='line'> 18</span>      *        如果没有配置id属性，则id默认为组件的id+按钮所处的顺序，如"btn_1"。&lt;br/>
+<span class='line'> 19</span>      *        组件通过在按钮数组里面增加{separtor:true}设置分隔条,具体请看示例。&lt;br/>
+<span class='line'> 20</span>      * &lt;b>特点：&lt;/b>&lt;br/>
+<span class='line'> 21</span>      * &lt;ol>
+<span class='line'> 22</span>      *      &lt;li>可以对按钮进行分组。&lt;/li>
+<span class='line'> 23</span>      *      &lt;li>支持所有omButton的属性和方法。&lt;/li>
+<span class='line'> 24</span>      * &lt;/ol>
+<span class='line'> 25</span>      * 
+<span class='line'> 26</span>      * &lt;b>示例：&lt;/b>&lt;br/>
+<span class='line'> 27</span>      * &lt;pre>
+<span class='line'> 28</span>      * &lt;script type="text/javascript" &gt;
+<span class='line'> 29</span>      * $(document).ready(function() {
+<span class='line'> 30</span>      *     $('#bnt').omButtonbar({
+<span class='line'> 31</span>      *         width : 550,
+<span class='line'> 32</span>      *         btns : [{id:"add",label:"新增"},{separtor:true},{id:"modify",label:"修改",}]
+<span class='line'> 33</span>      *     });
+<span class='line'> 34</span>      * });
+<span class='line'> 35</span>      * &lt;/script&gt;
+<span class='line'> 36</span>      * 
+<span class='line'> 37</span>      * &lt;div id="btn" /&gt;
+<span class='line'> 38</span>      * &lt;/pre>
+<span class='line'> 39</span>      * 
+<span class='line'> 40</span>      * @constructor
+<span class='line'> 41</span>      * @description 构造函数. 
+<span class='line'> 42</span>      * @param p 标准config对象：{}
+<span class='line'> 43</span>      */</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">    </span><span class="NAME">$.omWidget</span><span class="PUNC">(</span><span class="STRN">'om.omButtonbar'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">    	</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">        </span><span class="NAME">options</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="COMM">/**@lends omButtonbar# */</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">        	</span><span class="COMM">/**
+<span class='line'> 48</span>         	 * 组件的宽度，默认充满父容器。
+<span class='line'> 49</span>              * @type Number
+<span class='line'> 50</span>              * @default null 
+<span class='line'> 51</span>              * @example
+<span class='line'> 52</span>              * $("#button").omButtonbar({width:500}); 
+<span class='line'> 53</span>              */</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="WHIT">            </span><span class="NAME">width</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="WHIT">
+<span class='line'> 55</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="WHIT">        </span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="WHIT">        </span><span class="NAME">_create</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">            </span><span class="NAME">this.element.addClass</span><span class="PUNC">(</span><span class="STRN">"om-buttonbar"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">            </span><span class="NAME">$</span><span class="PUNC">(</span><span class="STRN">"&lt;span>&lt;/span>"</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">addClass</span><span class="PUNC">(</span><span class="STRN">"om-buttonbar-null"</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">appendTo</span><span class="PUNC">(</span><span class="NAME">this.element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">        </span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">        </span><span class="NAME">_init</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">self</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">                </span><span class="NAME">options</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.options</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">                </span><span class="NAME">element</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.element</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">oldStyle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">element.attr</span><span class="PUNC">(</span><span class="STRN">"style"</span><span class="PUNC">)</span><span class="PUNC">?</span><span class="NAME">element.attr</span><span class="PUNC">(</span><span class="STRN">"style"</span><span class="PUNC">)</span><span class="PUNC">:</span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">oldStyle</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">            	</span><span class="NAME">oldStyle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">oldStyle.substr</span><span class="PUNC">(</span><span class="NAME">oldStyle.length</span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">,</span><span class="NAME">oldStyle.length</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">";"</span><span class="PUNC">?</span><span class="NAME">oldStyle</span><span class="PUNC">:</span><span class="NAME">oldStyle</span><span class="PUNC">+</span><span class="STRN">";"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">options.width</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">            	</span><span class="NAME">element.attr</span><span class="PUNC">(</span><span class="STRN">"style"</span><span class="WHIT"> </span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">oldStyle</span><span class="PUNC">+</span><span class="STRN">"width:"</span><span class="PUNC">+</span><span class="PUNC">(</span><span class="NAME">options.width</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="PUNC">+</span><span class="STRN">"px;"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">            </span><span class="NAME">$.each</span><span class="PUNC">(</span><span class="NAME">options.btns</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">index</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">props</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="WHIT">            	</span><span class="KEYW">if</span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">props.separtor</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">            		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">btnId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">props.id</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">element.attr</span><span class="PUNC">(</span><span class="STRN">"id"</span><span class="PUNC">)</span><span class="PUNC">+</span><span class="STRN">"_"</span><span class="PUNC">+</span><span class="NAME">index</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="WHIT">    				</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">button</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$</span><span class="PUNC">(</span><span class="STRN">"&lt;button type=\"button\">&lt;/button>"</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="WHIT">    				    </span><span class="PUNC">.</span><span class="NAME">attr</span><span class="PUNC">(</span><span class="STRN">'id'</span><span class="PUNC">,</span><span class="NAME">btnId</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">    					</span><span class="PUNC">.</span><span class="NAME">appendTo</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">    				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">$.fn.omButton</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">    					</span><span class="NAME">button.omButton</span><span class="PUNC">(</span><span class="NAME">props</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">    				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">            	</span><span class="PUNC">}</span><span class="KEYW">else</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">					</span><span class="NAME">$</span><span class="PUNC">(</span><span class="STRN">"&lt;span class=\"om-buttonbar-sep\">&lt;/span>"</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">appendTo</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="NAME">jQuery</span><span class="PUNC">)</span><span class="PUNC">;</span></pre></body></html>

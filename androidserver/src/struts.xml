@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+	<!-- struts为配置文件根元素-->
+<struts>
+	<!-- 系统常量定义，定义上传文件字符集编码 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	 <constant name="struts.multipart.maxSize" value="9000000"/>
+	 <constant name="struts.devMode" value="false" />
+	<!-- Action必须放在指定的包名空间中-->
+	<package name="struts2" extends="struts-default">
+		<!-- API接口 -->
+		<action name="getCategory" class="API" method="getAllCategory"></action>
+		<action name="getNews" class="API" method="getArticle"></action>
+		<action name="getNewsTitle" class="API" method="getArticleTitle"></action>
+		<action name="getImage" class="API" method="getImage"></action>
+		<action name="getContent" class="API" method="getContent"></action>
+		<action name="getCategoryImage" class="API" method="getCategoryImage"></action>
+		<action name="getHomeImage" class="API" method="getHomeImage"></action>
+		<action name="getAudio" class="API" method="getAudio"></action>
+		<action name="getSportData" class="API" method="getSportData"></action>
+		
+		<!-- 用户接口 -->
+		<action name="register" class="User" method="register"></action>
+		<action name="login" class="User" method="login"></action>
+		
+		
+		<!-- 评论接口 -->
+		<action name="commentSave" class="Comment" method="commentSave"></action>
+		<action name="getCommentByNewsID" class="Comment" method="getCommentByNewsID"></action>
+		<action name="getCommentByUserID" class="Comment" method="getCommentByUserID"></action>
+		<action name="getCommentNumByNewsID" class="Comment" method="getCommentNumByNewsID"></action>
+		<action name="queryBypage" class="Comment" method="queryBypage"></action>
+		<action name="commentDelete" class="Comment" method="commentDelete"></action>
+
+		<action name="NewsCategoryAction" class="NewsCategoryAction">
+			<result name="SaveSuccess" type="redirect">NewsCategoryAction!queryPerPage.action</result>
+			<result name="SaveError" type="redirect">NewsCategoryAdd.jsp</result>
+			<result name="queryPerPageSuccess">showCategoryList.jsp</result>
+			<result name="updateSuccess" type="redirect">NewsCategoryAction!queryPerPage.action</result>
+			<result name="updateshow">NewsCategoryUpdate.jsp</result>
+   		</action>
+   		<action name="pushMessage" class="JpushAction" method="send">
+   		<result name="success"  type="redirect">getList.action</result>
+   		</action>
+   		<action name="getList" class="JpushAction" method="getList">
+   			<result name="listall">pushmessages.jsp</result>
+   		</action>
+   		<action name="NewsContentAction" class="NewsContentAction">
+      	 <interceptor-ref name="fileUpload">
+           <param name="allowedTypes">image/bmp,image/png,image/gif,image/pjpeg,image/jpg </param>
+     	  </interceptor-ref>
+     	  <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="saveSuccess">NewsContentAdd.jsp</result>
+			<result name="saveError" >NewsContentAdd.jsp</result>
+			<result name="saveNoFile">NewsContentAdd.jsp</result>
+			<result name="updateNoFile" type="redirect">NewsContentPageAction!articlePreUpdate.action?id=${id}&amp;message=${message}</result>
+			<result name="updateSuccess" type="redirect">NewsContentPageAction!articlePreUpdate.action?id=${id}&amp;message=${message}</result>
+			<result name="updateError" type="redirect">NewsContentPageAction!articlePreUpdate.action?id=${id}&amp;message=${message}</result>
+   		</action>
+   		
+   		<action name="NewsContentPageAction" class="NewsContentPageAction">
+			<result name="SaveSuccess" type="redirect">ShowArticleList.jsp</result>
+			<result name="SaveError" type="redirect">ShowArticleList.jsp</result>
+			<result name="queryPerPageSuccess">ShowArticleList.jsp</result>
+			<result name="detailSuccess">showArticleDetail.jsp</result>
+			<result name="deleteSuccess" type="redirect">NewsContentPageAction!queryPerPage.action</result>
+			<result name="deleteError" >NewsContentPageAction!articleDetail.action?id=${id}</result>
+			<result name="preUpdateSuccess">NewsContentUpdate.jsp</result>
+   		</action>
+   		<action name="HomeImageAction" class="HomeImageAction">
+   		<result name="success">homeimage.jsp</result>
+   		<result name="error"  type="redirect">homeimageadd.jsp</result>
+   		<result name="uploadsuccess" type="redirect">HomeImageAction!display.action</result>
+   		
+   		
+   		</action>
+	</package>
+	
+	
+	<!--Struts2Practise  -->
+	<package name="test" extends="struts-default">
+	<!-- 注册拦截器 -->
+	<!--注册拦截器栈  -->
+	<action name="SetTestAction" class="SetTestAction">
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+		<interceptor-ref name="execAndWait">
+		<param name="delay">1500</param>
+		</interceptor-ref>
+		<result name="wait">wait.jsp</result>
+		<result name="success">strutsTest.jsp</result>
+		<result name="put">index.jsp</result>
+		<result name="processor">index.jsp</result>
+	</action>
+	
+	<action name="FileUpLoad" class="FileUpLoad" method="upload">
+		<interceptor-ref name="fileUpload">
+			<param name="maximumSize">1000000</param>
+			<param name="allowTypes">image/gif,image/jpeg,image/png</param>
+		</interceptor-ref>
+		<result name="success">index.jsp</result>
+	</action>
+	
+	</package>
+	
+	
+</struts>
+
+
+<!-- SaveFileInfoAction?FileName=${upfileFileName} action 之间传值格式 
+方法一：使用result type="redirect"
+   配置如下所示：
+<result type="redirect" >/action2.action?user.id=${user.id}&amp;user.name=${user.name}....</result> 
+方法二：使用result type="chain" 
+chain会把前一个Action里的所有属性值带到下一个Action中来。 
+<result name="success" type="chain">login</result> 
+login为另外个Action的配置，但要注意的是后一个Action中也要把属性写出来，并且提供getter,setter
+-->

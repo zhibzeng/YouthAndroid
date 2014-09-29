@@ -1,0 +1,75 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+}
+ul, li {
+	list-style-type: none;
+}
+body {
+	font-size: 13px;
+
+	background: url("../img/weixin_bg.jpg") repeat bottom #f8f8f8;
+	color: #666666;
+}
+#box_title {
+	width: 394px;
+	margin: 0px auto;
+	font-weight: bold;
+	line-height: 28px;
+	font-size: 14px;
+}
+#con {
+	width: 394px;
+	height: 540px;
+	margin: 0px auto;
+	position: relative;
+	border-top: 1px solid #d6d6d6;
+	background-color: #FFF;
+	overflow: hidden;
+}
+#con .bottomcover {
+	position: absolute;
+	bottom: 0;
+	background: url("../img/halftransp.png") no-repeat 0 -5px;
+	height: 35px;
+	width: 394px;
+	_background: none;
+ _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.t.sinajs.cn/t35/style/images/tlogin/halftransp.png?id=1341302813656', sizingMethod='crop');
+	pointer-events: none;
+}
+img {
+	border: none;
+}
+#con ul {
+	position: relative;
+	margin: 0px 10px 0px 10px;
+	top: 0;
+	left: 0;
+	padding: 0;
+}
+#con ul li {
+	width: 100%;
+	border-top: 1px dotted #d6d6d6;
+	padding: 10px 0;
+	_padding: 8px 0;
+	overflow: hidden;
+	line-height: 1.5;
+}
+#con ul li .div_left {
+	float: left;
+	width: 50px;
+	border: 1px solid;
+}
+#con ul li .div_right {
+	float: right;
+	width: 305px
+}
+#con ul li .div_right a {
+	color: #6EAFD5;
+	padding: 0px;
+}
+#con ul li .div_right .twit_item_time {
+	color: #999;
+	padding: 0px;
+}
