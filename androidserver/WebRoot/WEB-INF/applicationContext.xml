@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 定义数据源Bean -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost/androidserver</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>7165092054</value>
+		</property>
+	</bean>
+
+	<!-- 定义SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+			<value>com/android/server/po/newsContent.hbm.xml</value>
+			<value>com/android/server/po/newsCategory.hbm.xml</value>
+			<value>com/android/server/po/newsimage.hbm.xml</value>
+			<value>com/android/server/po/newsCategoryImage.hbm.xml</value>
+			<value>com/android/server/po/pushmessage.hbm.xml</value>
+			<value>com/android/server/po/homeimage.hbm.xml</value>
+			<value>com/android/server/po/user.hbm.xml</value>
+			<value>com/android/server/po/Comment.hbm.xml</value>
+			<value>com/android/server/po/newsaudio.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 定义hibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 配置DAO组件 -->
+	<bean id="NewsContentDao" class="com.android.server.dao.impl.NewsContentDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="NewsCategoryDao" class="com.android.server.dao.impl.NewsCategoryDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="NewsImageDao" class="com.android.server.dao.impl.NewsImageDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="NewsCategoryImageDao" class="com.android.server.dao.impl.NewsCategoryImageDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="PushMessageDao" class="com.android.server.dao.impl.PushMessageDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="HomeImageDao" class="com.android.server.dao.impl.HomeImageDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="UserDao" class="com.android.server.dao.impl.UserDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="CommentDao" class="com.android.server.dao.impl.CommentDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="NewsAudioDao" class="com.android.server.dao.impl.NewsAudioDao"
+		scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<!-- 配置Serviec组件 -->
+	<bean id="NewsCategoryService" class="com.android.server.service.impl.NewsCategoryService"
+		scope="prototype">
+		<property name="newsCategoryDao" ref="NewsCategoryDao"></property>
+	</bean>
+	<bean id="NewsContentService" class="com.android.server.service.impl.NewsContentService"
+		scope="prototype">
+		<property name="newsContentDao" ref="NewsContentDao"></property>
+	</bean>
+	<bean id="NewsImageService" class="com.android.server.service.impl.NewsImageService"
+		scope="prototype">
+		<property name="newsImageDao" ref="NewsImageDao"></property>
+	</bean>
+	<bean id="NewsCategoryImageService" class="com.android.server.service.impl.NewsCategoryImageService"
+		scope="prototype">
+		<property name="categoryImageDao" ref="NewsCategoryImageDao"></property>
+	</bean>
+	<bean id="PushMessageService" class="com.android.server.service.impl.PushMessageService"
+		scope="prototype">
+		<property name="iPushMessageDao" ref="PushMessageDao"></property>
+	</bean>
+	<bean id="HomeImageService" class="com.android.server.service.impl.HomeImageService"
+		scope="prototype">
+		<property name="homeImageDao" ref="HomeImageDao"></property>
+	</bean>
+	<bean id="UserService" class="com.android.server.service.impl.UserService"
+		scope="prototype">
+		<property name="userDao" ref="UserDao"></property>
+	</bean>
+	<bean id="CommentService" class="com.android.server.service.impl.CommentService"
+		scope="prototype">
+		<property name="commentDao" ref="CommentDao"></property>
+	</bean>
+	<bean id="NewsAudioService" class="com.android.server.service.impl.NewsAudioService"
+		scope="prototype">
+		<property name="newsAudioDao" ref="NewsAudioDao"></property>
+	</bean>
+	<!-- 配置Action组件 -->
+	<bean id="NewsCategoryAction" class="com.android.server.action.NewsCategoryAction"
+		scope="prototype">
+		<property name="newsCategoryService" ref="NewsCategoryService"></property>
+		<property name="categoryImageService" ref="NewsCategoryImageService"></property>
+	</bean>
+	
+	<bean id="NewsContentAction" class="com.android.server.action.NewsContentAction"
+		scope="prototype">
+		<property name="newsContentService" ref="NewsContentService"></property>
+		<property name="newsImageService" ref="NewsImageService"></property>
+		<property name="newsAudioService" ref="NewsAudioService"></property>
+	</bean>
+	
+	<bean id="NewsContentPageAction" class="com.android.server.action.NewsContentPageAction"
+		scope="prototype">
+		<property name="newsContentService" ref="NewsContentService"></property>
+		<property name="newsCategoryService" ref="NewsCategoryService"></property>
+		<property name="newsImageService" ref="NewsImageService"></property>
+		<property name="newsAudioService" ref="NewsAudioService"></property>
+		<property name="commentService" ref="CommentService"></property>
+	</bean>
+	<bean id="HomeImageAction" class="com.android.server.action.HomeImageAction"
+		scope="prototype">
+		<property name="homeImageService" ref="HomeImageService"></property>
+	</bean>
+	
+	<!-- API接口 -->
+	<bean id="API" class="com.android.server.action.API" scope="prototype">
+	<property name="newsCategoryService" ref="NewsCategoryService"></property>
+	<property name="newsContentService" ref="NewsContentService"></property>
+	<property name="newsImageService" ref="NewsImageService"></property>
+	<property name="categoryImageService" ref="NewsCategoryImageService"></property>
+	<property name="homeImageService" ref="HomeImageService"></property>
+	<property name="newsAudioService" ref="NewsAudioService"></property>
+	</bean>
+	<!-- 用户接口 -->
+	<bean id="User" class="com.android.server.action.User" scope="prototype">
+		<property name="userService" ref="UserService"></property>
+	</bean>
+	
+	<bean id="Comment" class="com.android.server.action.Comment" scope="prototype">
+		<property name="commentService" ref="CommentService"></property>
+	</bean>
+	
+	<!-- 通知推送 -->
+	<bean id="JpushAction" class="com.android.server.action.JpushAction" scope="prototype">
+		<property name="iPushMessageService" ref="PushMessageService"></property>
+	</bean>
+	<!-- Strts2测试 -->
+	<bean id="SetTestAction" class="struts.test.SetTestAction"
+		scope="prototype">
+	</bean>
+	<bean id="FileUpLoad" class="struts.test.FileUpLoad"
+		scope="prototype">
+	</bean>
+</beans>

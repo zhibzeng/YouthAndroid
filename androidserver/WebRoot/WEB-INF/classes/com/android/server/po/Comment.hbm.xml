@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 每个class对应一个持久化对象 -->
+	<class name="com.android.server.po.Comment" table="comment" >
+		<!-- id元素用来定义主键标识,并指定主键自动递增 -->
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<!-- 定义其他属性 -->
+		<property name="newsid" column="newsid"  type="int" ></property>
+		<property name="userid" column="userid"  type="int" ></property>
+		<property name="username" column="username"  type="string" ></property>
+		<property name="content" column="content"  type="string" ></property>
+		<property name="createtime" column="createtime"  type="string" ></property>
+		</class>
+</hibernate-mapping>
